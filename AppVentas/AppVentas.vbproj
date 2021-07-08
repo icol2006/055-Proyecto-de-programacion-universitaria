@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="DAO\BaseDAO.vb" />
     <Compile Include="DAO\CategoriaDAO.vb" />
+    <Compile Include="DAO\MarcaDAO.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

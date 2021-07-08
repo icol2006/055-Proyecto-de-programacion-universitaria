@@ -1,15 +1,15 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class CategoriaDAO
+Public Class MarcaDAO
     Dim baseDAO As BaseDAO = New BaseDAO()
 
     'Obtener listado de registros
-    Public Function obtenerListado() As List(Of Categoria)
+    Public Function obtenerListado() As List(Of Marca)
         Dim oComman As New SqlCommand
         Try
-            Dim listado As List(Of Categoria)
+            Dim listado As List(Of Marca)
             oComman.Connection = baseDAO.ObtenerConexion()
-            oComman.CommandText = "SELECT id, descripcion FROM tb_categoria"
+            oComman.CommandText = "SELECT id, codigo, nombre FROM tb_marca"
             oComman.Connection.Open()
 
             Dim oDataRead As SqlDataReader = oComman.ExecuteReader()
@@ -24,12 +24,12 @@ Public Class CategoriaDAO
     End Function
 
     'Obtener registro por id
-    Public Function obtenerPorId(ByVal Id As Integer) As Categoria
+    Public Function obtenerPorId(ByVal Id As Integer) As Marca
         Dim oComman As New SqlCommand
         Try
-            Dim datos As Categoria
+            Dim datos As Marca
             oComman.Connection = baseDAO.ObtenerConexion()
-            oComman.CommandText = "SELECT id, descripcion FROM tb_categoria WHERE id = @id"
+            oComman.CommandText = "SELECT id, codigo, nombre  FROM tb_marca WHERE id = @id"
             oComman.Parameters.Add("@id", SqlDbType.Int).Value = Id
             oComman.Connection.Open()
 
@@ -41,7 +41,7 @@ Public Class CategoriaDAO
             Return datos
 
         Catch ex As Exception
-            Throw New System.AggregateException("No se puedo encontrar el cliente por Id", ex)
+            Throw New System.AggregateException("No se puedo encontrar", ex)
         Finally
             If oComman.Connection.State = ConnectionState.Open Then
                 oComman.Connection.Close()
@@ -50,15 +50,17 @@ Public Class CategoriaDAO
     End Function
 
     'Insertar registro
-    Public Sub insertar(ByVal datos As Categoria)
+    Public Sub insertar(ByVal datos As Marca)
         Dim oComman As New SqlCommand
         Try
             oComman.Connection = baseDAO.ObtenerConexion()
-            oComman.CommandText = "INSERT INTO tb_categoria VALUES (@descripcion)"
-            oComman.Parameters.Add("@descripcion", SqlDbType.NChar)
+            oComman.CommandText = "INSERT INTO tb_marca VALUES (@codigo,@nombre)"
+            oComman.Parameters.Add("@codigo", SqlDbType.NChar)
+            oComman.Parameters.Add("@nombre", SqlDbType.NChar)
             oComman.Connection.Open()
 
-            oComman.Parameters("@descripcion").Value = datos.descripcion
+            oComman.Parameters("@codigo").Value = datos.codigo
+            oComman.Parameters("@nombre").Value = datos.nombre
             oComman.ExecuteNonQuery()
 
             oComman.Connection.Close()
@@ -72,17 +74,19 @@ Public Class CategoriaDAO
     End Sub
 
     'actualizar registro
-    Public Sub actualizar(ByVal datos As Categoria)
+    Public Sub actualizar(ByVal datos As Marca)
         Dim oComman As New SqlCommand
         Try
             oComman.Connection = baseDAO.ObtenerConexion()
-            oComman.CommandText = "UPDATE tb_categoria SET descripcion = @descripcion  WHERE id = @id"
+            oComman.CommandText = "UPDATE tb_marca SET codigo = @codigo, nombre= @nombre  WHERE id = @id"
             oComman.Parameters.Add("@id", SqlDbType.Char)
-            oComman.Parameters.Add("@descripcion", SqlDbType.NChar)
+            oComman.Parameters.Add("@codigo", SqlDbType.NChar)
+            oComman.Parameters.Add("@nombre", SqlDbType.NChar)
             oComman.Connection.Open()
 
             oComman.Parameters("@id").Value = datos.id
-            oComman.Parameters("@descripcion").Value = datos.descripcion
+            oComman.Parameters("@codigo").Value = datos.codigo
+            oComman.Parameters("@nombre").Value = datos.nombre
             oComman.ExecuteNonQuery()
 
             oComman.Connection.Close()
@@ -98,7 +102,7 @@ Public Class CategoriaDAO
         Dim oComman As New SqlCommand
         Try
             oComman.Connection = baseDAO.ObtenerConexion()
-            oComman.CommandText = "DELETE FROM tb_categoria WHERE id = @id"
+            oComman.CommandText = "DELETE FROM tb_marca WHERE id = @id"
             oComman.Parameters.Add("@id", SqlDbType.Int).Value = Id
             oComman.Connection.Open()
             oComman.ExecuteNonQuery()
@@ -113,13 +117,14 @@ Public Class CategoriaDAO
     End Sub
 
     'recuperar registro de datareader
-    Private Function recuperarListado(ByVal dataReader As SqlDataReader) As List(Of Categoria)
+    Private Function recuperarListado(ByVal dataReader As SqlDataReader) As List(Of Marca)
         Try
-            Dim listado As New List(Of Categoria)
+            Dim listado As New List(Of Marca)
             While (dataReader.Read)
-                Dim x As New Categoria
+                Dim x As New Marca
                 x.id = dataReader("id")
-                x.descripcion = dataReader("descripcion")
+                x.codigo = dataReader("codigo")
+                x.nombre = dataReader("nombre")
                 listado.Add(x)
             End While
             Return listado

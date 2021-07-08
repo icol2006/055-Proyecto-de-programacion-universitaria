@@ -23,7 +23,15 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.cboProducto_Venta = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -52,6 +60,7 @@ Partial Class Form1
         Me.txtIdProducto = New System.Windows.Forms.TextBox()
         Me.dgProducto = New System.Windows.Forms.DataGridView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.btnNuevaMarca = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtNombreMarca = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -64,6 +73,7 @@ Partial Class Form1
         Me.txtIdMarca = New System.Windows.Forms.TextBox()
         Me.dgMarca = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.btnNuevaCategoria = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnEliminarCategoria = New System.Windows.Forms.Button()
         Me.BtnActualizarCategoria = New System.Windows.Forms.Button()
@@ -73,14 +83,15 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdCategoria = New System.Windows.Forms.TextBox()
         Me.dgCategorias = New System.Windows.Forms.DataGridView()
-        Me.cboProducto_Venta = New System.Windows.Forms.ComboBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idMarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigo_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -89,9 +100,6 @@ Partial Class Form1
         CType(Me.dgMarca, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.dgCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage5.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -109,6 +117,79 @@ Partial Class Form1
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(753, 426)
         Me.TabControl1.TabIndex = 0
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.Button3)
+        Me.TabPage5.Controls.Add(Me.Label17)
+        Me.TabPage5.Controls.Add(Me.DataGridView3)
+        Me.TabPage5.Controls.Add(Me.Label16)
+        Me.TabPage5.Controls.Add(Me.DataGridView2)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(745, 400)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Listado Ventas"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(478, 23)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 46
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label17.Location = New System.Drawing.Point(25, 260)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(144, 24)
+        Me.Label17.TabIndex = 45
+        Me.Label17.Text = "Detalle de venta"
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToDeleteRows = False
+        Me.DataGridView3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(29, 299)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.ReadOnly = True
+        Me.DataGridView3.RowHeadersWidth = 51
+        Me.DataGridView3.Size = New System.Drawing.Size(685, 82)
+        Me.DataGridView3.TabIndex = 44
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label16.Location = New System.Drawing.Point(25, 23)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(155, 24)
+        Me.Label16.TabIndex = 43
+        Me.Label16.Text = "Listado de ventas"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(29, 62)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersWidth = 51
+        Me.DataGridView2.Size = New System.Drawing.Size(685, 182)
+        Me.DataGridView2.TabIndex = 42
         '
         'TabPage1
         '
@@ -128,6 +209,23 @@ Partial Class Form1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Registrar Venta"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(22, 56)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(50, 13)
+        Me.Label23.TabIndex = 61
+        Me.Label23.Text = "Producto"
+        '
+        'cboProducto_Venta
+        '
+        Me.cboProducto_Venta.FormattingEnabled = True
+        Me.cboProducto_Venta.Location = New System.Drawing.Point(25, 74)
+        Me.cboProducto_Venta.Name = "cboProducto_Venta"
+        Me.cboProducto_Venta.Size = New System.Drawing.Size(247, 21)
+        Me.cboProducto_Venta.TabIndex = 60
         '
         'Label21
         '
@@ -394,6 +492,7 @@ Partial Class Form1
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.btnNuevaMarca)
         Me.TabPage3.Controls.Add(Me.Label7)
         Me.TabPage3.Controls.Add(Me.txtNombreMarca)
         Me.TabPage3.Controls.Add(Me.Label4)
@@ -412,6 +511,15 @@ Partial Class Form1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Marcas"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'btnNuevaMarca
+        '
+        Me.btnNuevaMarca.Location = New System.Drawing.Point(308, 32)
+        Me.btnNuevaMarca.Name = "btnNuevaMarca"
+        Me.btnNuevaMarca.Size = New System.Drawing.Size(75, 23)
+        Me.btnNuevaMarca.TabIndex = 22
+        Me.btnNuevaMarca.Text = "Nueva"
+        Me.btnNuevaMarca.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -507,15 +615,17 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgMarca.Location = New System.Drawing.Point(308, 32)
+        Me.dgMarca.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idMarca, Me.codigo_marca, Me.nombre_marca})
+        Me.dgMarca.Location = New System.Drawing.Point(308, 64)
         Me.dgMarca.Name = "dgMarca"
         Me.dgMarca.ReadOnly = True
         Me.dgMarca.RowHeadersWidth = 51
-        Me.dgMarca.Size = New System.Drawing.Size(409, 336)
+        Me.dgMarca.Size = New System.Drawing.Size(409, 304)
         Me.dgMarca.TabIndex = 11
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.btnNuevaCategoria)
         Me.TabPage4.Controls.Add(Me.Label3)
         Me.TabPage4.Controls.Add(Me.btnEliminarCategoria)
         Me.TabPage4.Controls.Add(Me.BtnActualizarCategoria)
@@ -532,6 +642,15 @@ Partial Class Form1
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Categorias"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'btnNuevaCategoria
+        '
+        Me.btnNuevaCategoria.Location = New System.Drawing.Point(298, 19)
+        Me.btnNuevaCategoria.Name = "btnNuevaCategoria"
+        Me.btnNuevaCategoria.Size = New System.Drawing.Size(75, 23)
+        Me.btnNuevaCategoria.TabIndex = 11
+        Me.btnNuevaCategoria.Text = "Nuevo"
+        Me.btnNuevaCategoria.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -611,92 +730,43 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgCategorias.Location = New System.Drawing.Point(298, 19)
+        Me.dgCategorias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.descripcion})
+        Me.dgCategorias.Location = New System.Drawing.Point(298, 60)
         Me.dgCategorias.Name = "dgCategorias"
         Me.dgCategorias.ReadOnly = True
         Me.dgCategorias.RowHeadersWidth = 51
-        Me.dgCategorias.Size = New System.Drawing.Size(409, 336)
+        Me.dgCategorias.Size = New System.Drawing.Size(409, 295)
         Me.dgCategorias.TabIndex = 2
         '
-        'cboProducto_Venta
+        'id
         '
-        Me.cboProducto_Venta.FormattingEnabled = True
-        Me.cboProducto_Venta.Location = New System.Drawing.Point(25, 74)
-        Me.cboProducto_Venta.Name = "cboProducto_Venta"
-        Me.cboProducto_Venta.Size = New System.Drawing.Size(247, 21)
-        Me.cboProducto_Venta.TabIndex = 60
+        Me.id.HeaderText = "Id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
         '
-        'Label23
+        'descripcion
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(22, 56)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(50, 13)
-        Me.Label23.TabIndex = 61
-        Me.Label23.Text = "Producto"
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
         '
-        'TabPage5
+        'idMarca
         '
-        Me.TabPage5.Controls.Add(Me.Label17)
-        Me.TabPage5.Controls.Add(Me.DataGridView3)
-        Me.TabPage5.Controls.Add(Me.Label16)
-        Me.TabPage5.Controls.Add(Me.DataGridView2)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(745, 400)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Listado Ventas"
-        Me.TabPage5.UseVisualStyleBackColor = True
+        Me.idMarca.HeaderText = "Id"
+        Me.idMarca.Name = "idMarca"
+        Me.idMarca.ReadOnly = True
         '
-        'DataGridView2
+        'codigo_marca
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(29, 62)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersWidth = 51
-        Me.DataGridView2.Size = New System.Drawing.Size(685, 182)
-        Me.DataGridView2.TabIndex = 42
+        Me.codigo_marca.HeaderText = "Codigo Marca"
+        Me.codigo_marca.Name = "codigo_marca"
+        Me.codigo_marca.ReadOnly = True
         '
-        'Label16
+        'nombre_marca
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.Label16.Location = New System.Drawing.Point(25, 23)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(155, 24)
-        Me.Label16.TabIndex = 43
-        Me.Label16.Text = "Listado de ventas"
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.AllowUserToAddRows = False
-        Me.DataGridView3.AllowUserToDeleteRows = False
-        Me.DataGridView3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(29, 299)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = True
-        Me.DataGridView3.RowHeadersWidth = 51
-        Me.DataGridView3.Size = New System.Drawing.Size(685, 82)
-        Me.DataGridView3.TabIndex = 44
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.Label17.Location = New System.Drawing.Point(25, 260)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(144, 24)
-        Me.Label17.TabIndex = 45
-        Me.Label17.Text = "Detalle de venta"
+        Me.nombre_marca.HeaderText = "Nombre Marca"
+        Me.nombre_marca.Name = "nombre_marca"
+        Me.nombre_marca.ReadOnly = True
         '
         'Form1
         '
@@ -707,6 +777,10 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -719,10 +793,6 @@ Partial Class Form1
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.dgCategorias, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -785,4 +855,12 @@ Partial Class Form1
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label17 As Label
     Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents Button3 As Button
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents btnNuevaCategoria As Button
+    Friend WithEvents btnNuevaMarca As Button
+    Friend WithEvents idMarca As DataGridViewTextBoxColumn
+    Friend WithEvents codigo_marca As DataGridViewTextBoxColumn
+    Friend WithEvents nombre_marca As DataGridViewTextBoxColumn
 End Class
