@@ -1,5 +1,7 @@
 ﻿Public Class Producto
     Public Sub New()
+        categoria = New Categoria()
+        marca = New Marca()
     End Sub
 
     Public Property id As Integer

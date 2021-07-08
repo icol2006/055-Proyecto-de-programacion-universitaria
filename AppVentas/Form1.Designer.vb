@@ -40,10 +40,11 @@ Partial Class Form1
         Me.txtCantidadVenta = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btnNuevoProducto = New System.Windows.Forms.Button()
+        Me.cboProductoCategoria = New System.Windows.Forms.ComboBox()
+        Me.cboProductoMarca = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtCategoriaProducto = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtMarcaProducto = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtPrecioProducto = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -72,6 +73,9 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtIdMarca = New System.Windows.Forms.TextBox()
         Me.dgMarca = New System.Windows.Forms.DataGridView()
+        Me.idMarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigo_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.btnNuevaCategoria = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -85,9 +89,12 @@ Partial Class Form1
         Me.dgCategorias = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idMarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigo_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idProducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigo_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,10 +304,11 @@ Partial Class Form1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.btnNuevoProducto)
+        Me.TabPage2.Controls.Add(Me.cboProductoCategoria)
+        Me.TabPage2.Controls.Add(Me.cboProductoMarca)
         Me.TabPage2.Controls.Add(Me.Label15)
-        Me.TabPage2.Controls.Add(Me.txtCategoriaProducto)
         Me.TabPage2.Controls.Add(Me.Label14)
-        Me.TabPage2.Controls.Add(Me.txtMarcaProducto)
         Me.TabPage2.Controls.Add(Me.Label13)
         Me.TabPage2.Controls.Add(Me.txtPrecioProducto)
         Me.TabPage2.Controls.Add(Me.Label12)
@@ -324,6 +332,31 @@ Partial Class Form1
         Me.TabPage2.Text = "Productos"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'btnNuevoProducto
+        '
+        Me.btnNuevoProducto.Location = New System.Drawing.Point(308, 32)
+        Me.btnNuevoProducto.Name = "btnNuevoProducto"
+        Me.btnNuevoProducto.Size = New System.Drawing.Size(75, 23)
+        Me.btnNuevoProducto.TabIndex = 43
+        Me.btnNuevoProducto.Text = "Nuevo"
+        Me.btnNuevoProducto.UseVisualStyleBackColor = True
+        '
+        'cboProductoCategoria
+        '
+        Me.cboProductoCategoria.FormattingEnabled = True
+        Me.cboProductoCategoria.Location = New System.Drawing.Point(23, 317)
+        Me.cboProductoCategoria.Name = "cboProductoCategoria"
+        Me.cboProductoCategoria.Size = New System.Drawing.Size(247, 21)
+        Me.cboProductoCategoria.TabIndex = 42
+        '
+        'cboProductoMarca
+        '
+        Me.cboProductoMarca.FormattingEnabled = True
+        Me.cboProductoMarca.Location = New System.Drawing.Point(23, 278)
+        Me.cboProductoMarca.Name = "cboProductoMarca"
+        Me.cboProductoMarca.Size = New System.Drawing.Size(247, 21)
+        Me.cboProductoMarca.TabIndex = 41
+        '
         'Label15
         '
         Me.Label15.AutoSize = True
@@ -333,13 +366,6 @@ Partial Class Form1
         Me.Label15.TabIndex = 40
         Me.Label15.Text = "Categoria"
         '
-        'txtCategoriaProducto
-        '
-        Me.txtCategoriaProducto.Location = New System.Drawing.Point(24, 317)
-        Me.txtCategoriaProducto.Name = "txtCategoriaProducto"
-        Me.txtCategoriaProducto.Size = New System.Drawing.Size(246, 20)
-        Me.txtCategoriaProducto.TabIndex = 39
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -348,13 +374,6 @@ Partial Class Form1
         Me.Label14.Size = New System.Drawing.Size(37, 13)
         Me.Label14.TabIndex = 38
         Me.Label14.Text = "Marca"
-        '
-        'txtMarcaProducto
-        '
-        Me.txtMarcaProducto.Location = New System.Drawing.Point(24, 278)
-        Me.txtMarcaProducto.Name = "txtMarcaProducto"
-        Me.txtMarcaProducto.Size = New System.Drawing.Size(246, 20)
-        Me.txtMarcaProducto.TabIndex = 37
         '
         'Label13
         '
@@ -369,7 +388,7 @@ Partial Class Form1
         '
         Me.txtPrecioProducto.Location = New System.Drawing.Point(24, 235)
         Me.txtPrecioProducto.Name = "txtPrecioProducto"
-        Me.txtPrecioProducto.Size = New System.Drawing.Size(246, 20)
+        Me.txtPrecioProducto.Size = New System.Drawing.Size(177, 20)
         Me.txtPrecioProducto.TabIndex = 35
         '
         'Label12
@@ -483,11 +502,12 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgProducto.Location = New System.Drawing.Point(308, 32)
+        Me.dgProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idProducto, Me.codigo_producto, Me.nombre_producto, Me.precio_producto, Me.marca_producto, Me.categoria_producto})
+        Me.dgProducto.Location = New System.Drawing.Point(308, 73)
         Me.dgProducto.Name = "dgProducto"
         Me.dgProducto.ReadOnly = True
         Me.dgProducto.RowHeadersWidth = 51
-        Me.dgProducto.Size = New System.Drawing.Size(409, 336)
+        Me.dgProducto.Size = New System.Drawing.Size(409, 295)
         Me.dgProducto.TabIndex = 22
         '
         'TabPage3
@@ -623,6 +643,24 @@ Partial Class Form1
         Me.dgMarca.Size = New System.Drawing.Size(409, 304)
         Me.dgMarca.TabIndex = 11
         '
+        'idMarca
+        '
+        Me.idMarca.HeaderText = "Id"
+        Me.idMarca.Name = "idMarca"
+        Me.idMarca.ReadOnly = True
+        '
+        'codigo_marca
+        '
+        Me.codigo_marca.HeaderText = "Codigo Marca"
+        Me.codigo_marca.Name = "codigo_marca"
+        Me.codigo_marca.ReadOnly = True
+        '
+        'nombre_marca
+        '
+        Me.nombre_marca.HeaderText = "Nombre Marca"
+        Me.nombre_marca.Name = "nombre_marca"
+        Me.nombre_marca.ReadOnly = True
+        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.btnNuevaCategoria)
@@ -750,23 +788,41 @@ Partial Class Form1
         Me.descripcion.Name = "descripcion"
         Me.descripcion.ReadOnly = True
         '
-        'idMarca
+        'idProducto
         '
-        Me.idMarca.HeaderText = "Id"
-        Me.idMarca.Name = "idMarca"
-        Me.idMarca.ReadOnly = True
+        Me.idProducto.HeaderText = "Id"
+        Me.idProducto.Name = "idProducto"
+        Me.idProducto.ReadOnly = True
         '
-        'codigo_marca
+        'codigo_producto
         '
-        Me.codigo_marca.HeaderText = "Codigo Marca"
-        Me.codigo_marca.Name = "codigo_marca"
-        Me.codigo_marca.ReadOnly = True
+        Me.codigo_producto.HeaderText = "Codigo"
+        Me.codigo_producto.Name = "codigo_producto"
+        Me.codigo_producto.ReadOnly = True
         '
-        'nombre_marca
+        'nombre_producto
         '
-        Me.nombre_marca.HeaderText = "Nombre Marca"
-        Me.nombre_marca.Name = "nombre_marca"
-        Me.nombre_marca.ReadOnly = True
+        Me.nombre_producto.HeaderText = "Nombre"
+        Me.nombre_producto.Name = "nombre_producto"
+        Me.nombre_producto.ReadOnly = True
+        '
+        'precio_producto
+        '
+        Me.precio_producto.HeaderText = "Precio"
+        Me.precio_producto.Name = "precio_producto"
+        Me.precio_producto.ReadOnly = True
+        '
+        'marca_producto
+        '
+        Me.marca_producto.HeaderText = "Marca"
+        Me.marca_producto.Name = "marca_producto"
+        Me.marca_producto.ReadOnly = True
+        '
+        'categoria_producto
+        '
+        Me.categoria_producto.HeaderText = "Categoria"
+        Me.categoria_producto.Name = "categoria_producto"
+        Me.categoria_producto.ReadOnly = True
         '
         'Form1
         '
@@ -836,11 +892,9 @@ Partial Class Form1
     Friend WithEvents Label12 As Label
     Friend WithEvents txtDescripcionProducto As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents txtMarcaProducto As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents txtPrecioProducto As TextBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents txtCategoriaProducto As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
@@ -863,4 +917,13 @@ Partial Class Form1
     Friend WithEvents idMarca As DataGridViewTextBoxColumn
     Friend WithEvents codigo_marca As DataGridViewTextBoxColumn
     Friend WithEvents nombre_marca As DataGridViewTextBoxColumn
+    Friend WithEvents cboProductoCategoria As ComboBox
+    Friend WithEvents cboProductoMarca As ComboBox
+    Friend WithEvents btnNuevoProducto As Button
+    Friend WithEvents idProducto As DataGridViewTextBoxColumn
+    Friend WithEvents codigo_producto As DataGridViewTextBoxColumn
+    Friend WithEvents nombre_producto As DataGridViewTextBoxColumn
+    Friend WithEvents precio_producto As DataGridViewTextBoxColumn
+    Friend WithEvents marca_producto As DataGridViewTextBoxColumn
+    Friend WithEvents categoria_producto As DataGridViewTextBoxColumn
 End Class
